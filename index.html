@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Hazel Anne G. Viado</title>
+    <title>Valentine's Day</title>
     <style>
         body {
             background-color: #fce4ec; /* Light pink background color */
@@ -62,7 +62,7 @@
             <h1>Will you be my valentine?</h1>
             <button id="yesButton" onclick="handleYesResponse()">Yes</button>
             <button id="noButton" onclick="handleNoResponse()">No</button>
-            <div id="cuteMessage">See you later !!! </div>
+            <div id="cuteMessage">See you later!!</div>
         </div>
     </div>
 
@@ -77,6 +77,10 @@
             // Change the GIF when user clicks "Yes"
             const newGifUrl = "g2.gif";
             document.getElementById('cuteGif').src = newGifUrl;
+
+            // Hide all buttons
+            document.getElementById('yesButton').style.display = 'none';
+            document.getElementById('noButton').style.display = 'none';
         }
 
         function handleNoResponse() {
