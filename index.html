@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hazel Anne G. Viado</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background color */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #message {
+            background-color: #f8bbd0; /* Light pink background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #cuteGif {
+            width: 300px;
+            height: auto;
+            margin: -10px; /* Added margin to the edges of the GIF */
+            border-radius: 10px;
+        }
+
+        #yesButton, #noButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #e91e63; /* Pink accent color */
+            color: #fff; /* White text color */
+            transition: all 0.3s ease; /* Smooth transition for size change */
+        }
+
+        #cuteMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ec407a; /* Darker pink color */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="message">
+            <img id="cuteGif" src="g1.gif" alt="Cute GIF">
+            <h1>Will you be my valentine?</h1>
+            <button id="yesButton" onclick="handleYesResponse()">Yes</button>
+            <button id="noButton" onclick="handleNoResponse()">No</button>
+            <div id="cuteMessage">See you later !!! </div>
+        </div>
+    </div>
+
+    <script>
+        let yesButtonClickCount = 0;
+
+        function handleYesResponse() {
+            yesButtonClickCount++;
+            document.getElementById('yesButton').style.fontSize = 16 + yesButtonClickCount + 'px';
+            document.getElementById('cuteMessage').style.display = 'block';
+
+            // Change the GIF when user clicks "Yes"
+            const newGifUrl = "g2.gif";
+            document.getElementById('cuteGif').src = newGifUrl;
+        }
+
+        function handleNoResponse() {
+            const yesButton = document.getElementById('yesButton');
+            yesButtonClickCount++;
+            yesButton.style.fontSize = 16 + yesButtonClickCount + 'px';
+            
+            const noButton = document.getElementById('noButton');
+            const maxX = window.innerWidth - noButton.clientWidth;
+            const maxY = window.innerHeight - noButton.clientHeight;
+
+            // Generate random position
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            // Apply new position
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+
+            document.getElementById('cuteMessage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
