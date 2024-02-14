@@ -59,7 +59,7 @@
     <div id="container">
         <div id="message">
             <img id="cuteGif" src="g1.gif" alt="Cute GIF">
-            <h1>Will you be my valentine?</h1>
+            <h1 id="question">Will you be my valentine?</h1>
             <button id="yesButton" onclick="handleYesResponse()">Yes</button>
             <button id="noButton" onclick="handleNoResponse()">No</button>
             <div id="cuteMessage">See you later!!</div>
@@ -81,6 +81,9 @@
             // Hide all buttons
             document.getElementById('yesButton').style.display = 'none';
             document.getElementById('noButton').style.display = 'none';
+
+            // Change the question to "Thank you"
+            document.getElementById('question').innerText = 'Thank you';
         }
 
         function handleNoResponse() {
